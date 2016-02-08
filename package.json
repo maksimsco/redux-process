@@ -1,0 +1,61 @@
+{
+  "name": "redux-process",
+  "version": "0.0.1",
+  "description": "Process manager for Redux to orchestrate complex/asynchronous operations in one place",
+  "main": "lib/index.js",
+  "keywords": [
+    "javascript",
+    "redux",
+    "middleware",
+    "process",
+    "process manager",
+    "saga",
+    "side effect"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src examples",
+    "test": "babel-node test | tap-spec",
+    "check": "npm run lint && npm run test",
+    "clean": "rimraf lib",
+    "build:lib": "npm run clean && babel src --out-dir lib",
+    "prepublish": " npm run check && npm run build:lib",
+    "counter": "babel-node examples/counter/server.js",
+    "reddit": "babel-node examples/reddit/server.js",
+    "counter:test": "babel-node examples/counter/test | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksimsco/redux-process.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maksimsco/redux-process/issues"
+  },
+  "homepage": "https://github.com/maksimsco/redux-process",
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^6.2.1",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-react-hmre": "^1.0.1",
+    "babel-preset-stage-0": "^6.3.13",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.14.0",
+    "express": "^4.13.3",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.1.1",
+    "redux": "^3.1.2",
+    "redux-logger": "^2.4.0",
+    "rimraf": "^2.5.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.6.0"
+  }
+}

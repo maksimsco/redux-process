@@ -1,0 +1,8 @@
+node_modules
+*.log
+.babelrc
+.eslintrc
+.gitignore
+src
+test
+examples

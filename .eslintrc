@@ -1,0 +1,22 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-console": 0,
+    "semi": [2, "always"],
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "brace-style": [2, "1tbs", {"allowSingleLine": true}],
+    "quotes": [2, "single", "avoid-escape"],
+    "object-curly-spacing": [2, "never"],
+    "react/jsx-uses-react": 1,
+    "react/jsx-no-undef": 2,
+    "react/wrap-multilines": 2
+  }
+}

@@ -1,0 +1,7 @@
+lib
+dist
+node_modules
+logs
+*.log
+npm-debug.log*
+.npm
