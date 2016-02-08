@@ -1,6 +1,6 @@
 import test from 'tape';
 import {createStore} from 'redux';
-import {process} from '../../src/index';
+import {manage} from '../../src/index';
 
 
 test('recipe2: state reduced before dispatch action in saga', (assert) => {
@@ -45,7 +45,7 @@ test('recipe2: state reduced before dispatch action in saga', (assert) => {
     }
   }
 
-  const store = createStore(reducer, process({saga}));
+  const store = createStore(reducer, manage({saga}));
 
   store.dispatch({type: 'a1'});
   store.dispatch({type: 'a1'});

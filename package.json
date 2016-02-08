@@ -1,6 +1,6 @@
 {
   "name": "redux-process",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Process manager for Redux to orchestrate complex/asynchronous operations in one place",
   "main": "lib/index.js",
   "keywords": [

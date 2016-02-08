@@ -15,7 +15,7 @@ function timeout(ms) {
 }
 
 
-export function process(collection={}, dependencies={}) {
+export function manage(collection={}, dependencies={}) {
   const sagas = Object.values(collection).filter((s) => typeof s === 'function');
 
   return (createStore) => (...args) => {

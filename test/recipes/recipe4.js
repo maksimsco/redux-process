@@ -1,6 +1,6 @@
 import test from 'tape';
 import {createStore} from 'redux';
-import {process} from '../../src/index';
+import {manage} from '../../src/index';
 
 
 test('recipe4: dispatch await for actions in chain', async (assert) => {
@@ -25,7 +25,7 @@ test('recipe4: dispatch await for actions in chain', async (assert) => {
     }
   }
 
-  const store = createStore(reducer, process({saga}));
+  const store = createStore(reducer, manage({saga}));
 
   await store.dispatch({type: 'a1'});
 

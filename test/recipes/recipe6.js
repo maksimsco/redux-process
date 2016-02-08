@@ -1,6 +1,6 @@
 import test from 'tape';
 import {createStore} from 'redux';
-import {process, TimeoutException} from '../../src/index';
+import {manage, TimeoutException} from '../../src/index';
 
 
 test('recipe6: promise race with timeout', async (assert) => {
@@ -39,7 +39,7 @@ test('recipe6: promise race with timeout', async (assert) => {
     }
   }
 
-  const store = createStore(reducer, process({saga}));
+  const store = createStore(reducer, manage({saga}));
 
   await store.dispatch({type: 'a1'});
   assert.deepEqual(store.getState(), [

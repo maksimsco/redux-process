@@ -1,18 +1,18 @@
 import test from 'tape';
 import {createStore} from 'redux';
-import {process, TimeoutException} from '../src/index';
+import {manage, TimeoutException} from '../src/index';
 import {sleep} from './common';
 
 
 test('store process args', (assert) => {
   assert.plan(1);
-  assert.doesNotThrow(() => createStore(() => {}, process()), 'does not throw with empty process args');
+  assert.doesNotThrow(() => createStore(() => {}, manage()), 'does not throw with empty process args');
 });
 
 test('store dispatch action', async (assert) => {
   assert.plan(2);
 
-  const store = createStore(() => {}, process());
+  const store = createStore(() => {}, manage());
 
   try {
     await store.dispatch('z');
@@ -40,7 +40,7 @@ test('store reducer', (assert) => {
     }
   }
 
-  const store = createStore(reducer, process());
+  const store = createStore(reducer, manage());
 
   store.dispatch({type: 'a1'});
   store.dispatch({type: 'a2'});
@@ -56,7 +56,7 @@ test('store reducer', (assert) => {
 test('store ehnancer', async (assert) => {
   assert.plan(2);
 
-  const store = createStore(() => {}, process());
+  const store = createStore(() => {}, manage());
 
   const a = store.dispatch({type: 'a1'});
   const b = store.dispatch({type: 'a2'});
@@ -93,7 +93,7 @@ test('store process pass dependencies', (assert) => {
     custom();
   }
 
-  const store = createStore(() => {}, process({saga}, {custom: () => result = 1}));
+  const store = createStore(() => {}, manage({saga}, {custom: () => result = 1}));
 
   store.dispatch({type: 'a1'});
 
@@ -113,7 +113,7 @@ test('store process default delay dependecy', async (assert) => {
     result = true;
   }
 
-  const store = createStore(() => {}, process({saga}));
+  const store = createStore(() => {}, manage({saga}));
 
   store.dispatch({type: 'a1'});
   await sleep(0);
@@ -138,7 +138,7 @@ test('store process default timeot dependecy', async (assert) => {
 
   }
 
-  const store = createStore(() => {}, process({saga}));
+  const store = createStore(() => {}, manage({saga}));
 
   await store.dispatch({type: 'a1'});
 
@@ -164,7 +164,7 @@ test('store process executes process', (assert) => {
     result3 = true;
   }
 
-  const store = createStore(() => {}, process({saga1, saga2, saga3}));
+  const store = createStore(() => {}, manage({saga1, saga2, saga3}));
 
   store.dispatch({type: 'a1'});
 
@@ -193,7 +193,7 @@ test('store process reduces first then passes state to process', (assert) => {
     result.push(state);
   }
 
-  const store = createStore(reducer, process({saga}));
+  const store = createStore(reducer, manage({saga}));
 
   store.dispatch({type: 'a1'});
   assert.deepEqual(result, [
@@ -225,7 +225,7 @@ test('store process actions dispatched are executed in process', (assert) => {
     }
   }
 
-  const store = createStore(() => {}, process({saga}));
+  const store = createStore(() => {}, manage({saga}));
 
   store.dispatch({type: 'a1'});
   assert.true(result, 'action executes in process');
@@ -255,7 +255,7 @@ test('store process actions dispatched are reduced', (assert) => {
     }
   }
 
-  const store = createStore(reducer, process({saga}));
+  const store = createStore(reducer, manage({saga}));
 
   store.dispatch({type: 'a1'});
   assert.equal(store.getState(), 12, 'action reduced');

@@ -1,6 +1,6 @@
 import test from 'tape';
 import {createStore} from 'redux';
-import {process} from '../../src/index';
+import {manage} from '../../src/index';
 import {sleep} from '../common';
 
 
@@ -26,7 +26,7 @@ test('recipe3: dispatch await for action', async (assert) => {
     }
   }
 
-  const store = createStore(reducer, process({saga}));
+  const store = createStore(reducer, manage({saga}));
 
   await store.dispatch({type: 'a1'});
 

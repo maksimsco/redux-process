@@ -1,14 +1,14 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {createStore} from 'redux';
-import {process} from 'redux-process';
+import {manage} from 'redux-process';
 import {Provider} from 'react-redux';
 import reducers from './redux';
 import sagas from './sagas';
 import Container from './container';
 
 
-const store = createStore(reducers, process(sagas));
+const store = createStore(reducers, manage(sagas));
 
 if (module.hot) {
   module.hot.accept('./redux', () => {

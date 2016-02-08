@@ -1,6 +1,6 @@
 import test from 'tape';
 import {createStore} from 'redux';
-import {process} from '../../src/index';
+import {manage} from '../../src/index';
 import {sleep} from '../common';
 
 
@@ -49,7 +49,7 @@ test('recipe5: dispatch in parallel', async (assert) => {
     }
   }
 
-  const store = createStore(reducer, process({saga1, saga2, saga3, saga4}));
+  const store = createStore(reducer, manage({saga1, saga2, saga3, saga4}));
 
   store.dispatch({type: 'a1'});
   await sleep(100);

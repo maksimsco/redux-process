@@ -1,6 +1,6 @@
 import test from 'tape';
 import {createStore} from 'redux';
-import {process} from '../../src/index';
+import {manage} from '../../src/index';
 
 
 test('recipe1: dispatch multiple actions', (assert) => {
@@ -22,7 +22,7 @@ test('recipe1: dispatch multiple actions', (assert) => {
     }
   }
 
-  const store = createStore(reducer, process({saga}));
+  const store = createStore(reducer, manage({saga}));
 
   store.dispatch({type: 'a1'});
 

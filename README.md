@@ -9,7 +9,7 @@ npm install redux-process
 ## Basic
 
 ```javascript
-import {process} from 'redux-process';
+import {manage} from 'redux-process';
 
 
 async function saga(state, action, {dispatch, delay}) {
@@ -23,13 +23,13 @@ async function saga(state, action, {dispatch, delay}) {
   }
 }
 
-const store = createStore(reducers, {}, process({saga}));
+const store = createStore(reducers, {}, manage({saga}));
 ```
 
 ## Complex
 
 ```javascript
-import {process} from 'redux-process';
+import {manage} from 'redux-process';
 
 
 async function saga(state, action, {dispatch, fetch, history}) {
@@ -53,7 +53,7 @@ async function saga(state, action, {dispatch, fetch, history}) {
   }
 }
 
-const store = createStore(reducers, {}, process({saga}, {fetch, history}));
+const store = createStore(reducers, {}, manage({saga}, {fetch, history}));
 ```
 
 ## Testing
