@@ -1,6 +1,6 @@
 {
   "name": "redux-process",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Process manager for Redux to orchestrate complex/asynchronous operations in one place",
   "main": "lib/index.js",
   "keywords": [
@@ -21,7 +21,6 @@
     "build:lib": "npm run clean && babel src --out-dir lib",
     "prepublish": " npm run check && npm run build:lib",
     "counter": "babel-node examples/counter/server.js",
-    "reddit": "babel-node examples/reddit/server.js",
     "counter:test": "babel-node examples/counter/test | tap-spec"
   },
   "repository": {
